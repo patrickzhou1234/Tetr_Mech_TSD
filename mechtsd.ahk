@@ -14,11 +14,15 @@ return
 newPiece() {
     PixelGetColor, color, 954, 219
     if (color="0xC03ACE") {
-        Rotate()
-        Send {Left down}200{Left up}
-        Send {Down down}200{Down up}
-        Rotate()
-        Send {Space down}200{Space up}
+        if (squarect=0) {
+            Rotate()
+            Send {Left down}200{Left up}
+            Send {Down down}200{Down up}
+            Rotate()
+            Send {Space down}200{Space up}
+        }  else {
+            Send {c down}200{c up}
+        }
     }
     if (color="0x9EE329") {
         Rotate()
@@ -72,13 +76,13 @@ newPiece() {
         Send {Left down}200{Left up}
         Send {Space down}200{Space up}
     }
-    Sleep, 1000
+    Sleep, 200
 }
 return
 
 `::
 Loop, {
-    if GetKeyState("Esc", "P")
+    if GetKeyState("Delete", "P")
         break
     newPiece()
 }
