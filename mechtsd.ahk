@@ -86,7 +86,7 @@ Loop, {
     if GetKeyState("`", "P")
         break
     newPiece()
-    Sleep, 200
+    Sleep, 1000
 }
 return
 
