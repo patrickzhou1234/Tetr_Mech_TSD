@@ -17,6 +17,7 @@ newPiece() {
         if (squarect=0) {
             Rotate()
             Send {Left down}200{Left up}
+            Sleep, 100
             Send {Down down}200{Down up}
             Rotate()
             Send {Space down}200{Space up}
@@ -25,11 +26,24 @@ newPiece() {
         }
     }
     if (color="0x9EE329") {
-        Rotate()
-        Loop, 4 {
-            Send, {Right down}200{Right up}
+        PixelGetColor, corcolor, 1107, 280
+        if (corcolor="0x82B231") {
+            Rotate()
+            Loop, 2 {
+                Send, {Left down}200{Left up}
+            }
+            Send {Down down}200{Down up}
+            Loop, 2 {
+                Send {Right down}200{Right up}
+            }
+            Send {Space down}200{Space up}
+        } else {
+            Rotate()
+            Loop, 4 {
+                Send, {Right down}200{Right up}
+            }
+            Send {Space down}200{Space up}
         }
-        Send {Space down}200{Space up}
     }
     if (color="0x2970E3") {
         Loop, 3 {
@@ -76,7 +90,7 @@ newPiece() {
         Send {Left down}200{Left up}
         Send {Space down}200{Space up}
     }
-    Sleep, 200
+    Sleep, 100
 }
 return
 
@@ -88,6 +102,10 @@ Loop, {
 }
 return
 
+!^z::
+squarect:=0
+return
+
 
 ;0xCE3A53 (blue) (maybe), 954, 219
 ;0x29E39E (Green)
@@ -96,3 +114,4 @@ return
 ;0x29BEE3 (yellow)
 ;0xC03ACE (tpiece)
 ;0x2970E3 (orange)
+;1107, 280 stick lasts
