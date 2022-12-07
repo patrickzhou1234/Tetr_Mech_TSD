@@ -14,15 +14,11 @@ return
 newPiece() {
     PixelGetColor, color, 954, 219
     if (color="0xC03ACE") {
-        if (squarect==0) {
-            Rotate()
-            Send {Left down}200{Left up}
-            Send {Down down}200{Down up}
-            Rotate()
-            Send {Space down}200{Space up}
-        } else {
-            Send {c down}200{c up}
-        }
+        Rotate()
+        Send {Left down}200{Left up}
+        Send {Down down}200{Down up}
+        Rotate()
+        Send {Space down}200{Space up}
     }
     if (color="0x9EE329") {
         Rotate()
@@ -48,15 +44,19 @@ newPiece() {
         Send {Space down}200{Space up}
     }
     if (color="0x29BEE3") {
-        squarect:=squarect+1
-        Send {Right down}200{Right up}
-        Send {Down down}200{Down up}
-        Send {Right down}200{Right up}
-        Send {Space down}200{Space up}
+        if (squarect=0) {
+            squarect++
+            Send {Right down}200{Right up}
+            Send {Down down}200{Down up}
+            Send {Right down}200{Right up}
+            Send {Space down}200{Space up}
+        } else {
+            Send {c down}200{c up}
+        }
     }
     if (color="0x29E39E") {
         if (squarect>0) {
-            squarect:=squarect-1
+            squarect--
             Send {Right down}200{Right up}
             Send {Space down}200{Space up}
         } else {
@@ -72,7 +72,7 @@ newPiece() {
         Send {Left down}200{Left up}
         Send {Space down}200{Space up}
     }
-    Sleep, 200
+    Sleep, 1000
 }
 return
 
