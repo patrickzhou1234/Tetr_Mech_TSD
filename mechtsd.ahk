@@ -12,8 +12,8 @@ Rotate() {
 return
 
 newPiece() {
-    PixelGetColor, color, 954, 219
-    if (color="0xC03ACE") {
+    PixelSearch, Px, Py, 953, 215, 955, 300, 0xC03ACE, 1, Fast
+    if (ErrorLevel=0) {
         if (squarect=0) {
             Rotate()
             Send {Left down}200{Left up}
@@ -25,7 +25,8 @@ newPiece() {
             Send {c down}200{c up}
         }
     }
-    if (color="0x9EE329") {
+    PixelSearch, Px, Py, 953, 215, 955, 300, 0x9EE329, 1, Fast
+    if (ErrorLevel=0) {
         PixelGetColor, corcolor, 1107, 280
         if (corcolor="0x82B231") {
             Rotate()
@@ -45,7 +46,8 @@ newPiece() {
             Send {Space down}200{Space up}
         }
     }
-    if (color="0x2970E3") {
+    PixelSearch, Px, Py, 953, 215, 955, 300, 0x2970E3, 1, Fast
+    if (ErrorLevel=0) {
         Loop, 3 {
             Rotate()
         }
@@ -54,14 +56,16 @@ newPiece() {
         }
         Send {Space down}200{Space up}
     }
-    if (color="0xCE3A53") {
+    PixelSearch, Px, Py, 953, 215, 955, 300, 0xCE3A53, 1, Fast
+    if (ErrorLevel=0) {
         Rotate()
         Loop, 4 {
             Send {Left down}200{Left up}
         }
         Send {Space down}200{Space up}
     }
-    if (color="0x29BEE3") {
+    PixelSearch, Px, Py, 953, 215, 955, 300, 0x29BEE3, 1, Fast
+    if (ErrorLevel=0) {
         if (squarect=0) {
             squarect++
             Send {Right down}200{Right up}
@@ -72,7 +76,8 @@ newPiece() {
             Send {c down}200{c up}
         }
     }
-    if (color="0x29E39E") {
+    PixelSearch, Px, Py, 953, 215, 955, 300, 0x29E39E, 1, Fast
+    if (ErrorLevel=0) {
         if (squarect>0) {
             squarect--
             Send {Right down}200{Right up}
@@ -81,7 +86,8 @@ newPiece() {
             Send {c down}200{c up}
         }
     }
-    if (color="0x352BE3") {
+    PixelSearch, Px, Py, 953, 215, 955, 300, 0x352BE3, 1, Fast
+    if (ErrorLevel=0) {
         Rotate()
         Loop, 2 {
             Send {Left down}200{Left up}
