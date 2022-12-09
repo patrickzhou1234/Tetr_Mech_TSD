@@ -3,12 +3,11 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-global squarect:=0
-global redct:=0
+global squarect:=0, redct:=0
 Return
 
 Rotate() {
-    Send, {up Down}200{up Up}
+    Send, {up Down}100{up Up}
 }
 return
 
@@ -18,13 +17,13 @@ newPiece() {
         if (squarect=0 && redct>0) {
             redct--
             Rotate()
-            Send {Left down}200{Left up}
+            Send {Left down}100{Left up}
             Sleep, 100
-            Send {Down down}200{Down up}
+            Send {Down down}100{Down up}
             Rotate()
-            Send {Space down}200{Space up}
+            Send {Space down}100{Space up}
         }  else {
-            Send {c down}200{c up}
+            Send {c down}100{c up}
         }
     }
     PixelSearch, Px, Py, 953, 215, 955, 570, 0x9EE329, 1, Fast
@@ -33,19 +32,19 @@ newPiece() {
         if (color="0x82B231") {
             Rotate()
             Loop, 2 {
-                Send, {Left down}200{Left up}
+                Send, {Left down}100{Left up}
             }
-            Send {Down down}200{Down up}
+            Send {Down down}100{Down up}
             Loop, 2 {
-                Send {Right down}200{Right up}
+                Send {Right down}100{Right up}
             }
-            Send {Space down}200{Space up}
+            Send {Space down}100{Space up}
         } else {
             Rotate()
             Loop, 4 {
                 Send, {Right down}200{Right up}
             }
-            Send {Space down}200{Space up}
+            Send {Space down}100{Space up}
         }
     }
     PixelSearch, Px, Py, 953, 215, 955, 570, 0x2970E3, 1, Fast
@@ -54,39 +53,39 @@ newPiece() {
             Rotate()
         }
         Loop, 4 {
-            Send, {Right down}200{Right up}
+            Send, {Right down}100{Right up}
         }
-        Send {Space down}200{Space up}
+        Send {Space down}100{Space up}
     }
     PixelSearch, Px, Py, 953, 215, 955, 570, 0xCE3A53, 1, Fast
     if (ErrorLevel=0) {
         Rotate()
         Loop, 4 {
-            Send {Left down}200{Left up}
+            Send {Left down}100{Left up}
         }
-        Send {Space down}200{Space up}
+        Send {Space down}100{Space up}
     }
     PixelSearch, Px, Py, 953, 215, 955, 570, 0x29BEE3, 1, Fast
     if (ErrorLevel=0) {
         if (squarect=0) {
             squarect++
-            Send {Right down}200{Right up}
-            Send {Down down}200{Down up}
-            Sleep, 100
-            Send {Right down}200{Right up}
-            Send {Space down}200{Space up}
+            Send {Right down}1{Right up}
+            Send {Down down}100{Down up}
+            Sleep, 150
+            Send {Right down}100{Right up}
+            Send {Space down}100{Space up}
         } else {
-            Send {c down}200{c up}
+            Send {c down}100{c up}
         }
     }
     PixelSearch, Px, Py, 953, 215, 955, 570, 0x29E39E, 1, Fast
     if (ErrorLevel=0) {
         if (squarect>0) {
             squarect--
-            Send {Right down}200{Right up}
-            Send {Space down}200{Space up}
+            Send {Right down}100{Right up}
+            Send {Space down}100{Space up}
         } else {
-            Send {c down}200{c up}
+            Send {c down}100{c up}
         }
     }
     PixelSearch, Px, Py, 953, 215, 955, 570, 0x352BE3, 1, Fast
@@ -94,14 +93,14 @@ newPiece() {
         redct++
         Rotate()
         Loop, 2 {
-            Send {Left down}200{Left up}
+            Send {Left down}1{Left up}
         }
-        Send {Down down}200{Down up}
-        Sleep, 150
-        Send {Left down}200{Left up}
-        Send {Space down}200{Space up}
+        Send {Down down}100{Down up}
+        Sleep, 250
+        Send {Left down}100{Left up}
+        Send {Space down}100{Space up}
     }
-    Sleep, 100
+    Sleep, 1
 }
 return
 
