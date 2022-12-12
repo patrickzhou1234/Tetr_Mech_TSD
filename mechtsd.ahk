@@ -96,7 +96,7 @@ newPiece() {
             Send {Left down}1{Left up}
         }
         Send {Down down}100{Down up}
-        Sleep, 250
+        Sleep, 400
         Send {Left down}100{Left up}
         Send {Space down}100{Space up}
     }
