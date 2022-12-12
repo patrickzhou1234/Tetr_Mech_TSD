@@ -3,7 +3,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-global squarect:=0, redct:=0
+global squarect:=0
 Return
 
 Rotate() {
@@ -14,8 +14,7 @@ return
 newPiece() {
     PixelSearch, Px, Py, 953, 215, 955, 570, 0xBD36CF, 1, Fast
     if (ErrorLevel=0) {
-        if (squarect=0 && redct>0) {
-            redct--
+        if (squarect=0) {
             Rotate()
             Send {Left down}100{Left up}
             Sleep, 100
@@ -71,7 +70,7 @@ newPiece() {
             squarect++
             Send {Right down}1{Right up}
             Send {Down down}100{Down up}
-            Sleep, 150
+            Sleep, 100
             Send {Right down}100{Right up}
             Send {Space down}100{Space up}
         } else {
@@ -90,13 +89,12 @@ newPiece() {
     }
     PixelSearch, Px, Py, 953, 215, 955, 570, 0x3B39E0, 1, Fast
     if (ErrorLevel=0) {
-        redct++
         Rotate()
         Loop, 2 {
             Send {Left down}1{Left up}
         }
-        Send {Down down}100{Down up}
-        Sleep, 400
+        Send {Down down}50{Down up}
+        Sleep, 250
         Send {Left down}100{Left up}
         Send {Space down}100{Space up}
     }
