@@ -12,7 +12,7 @@ Rotate() {
 return
 
 newPiece() {
-    PixelSearch, Px, Py, 953, 215, 955, 570, 0xC03ACE, 1, Fast
+    PixelSearch, Px, Py, 953, 215, 955, 570, 0xBD36CF, 1, Fast
     if (ErrorLevel=0) {
         if (squarect=0 && redct>0) {
             redct--
@@ -26,10 +26,10 @@ newPiece() {
             Send {c down}100{c up}
         }
     }
-    PixelSearch, Px, Py, 953, 215, 955, 570, 0x9EE329, 1, Fast
+    PixelSearch, Px, Py, 953, 215, 955, 570, 0xA0E42B, 1, Fast
     if (ErrorLevel=0) {
         PixelGetColor, color, 1107, 280
-        if (color="0x82B231") {
+        if (color="0x83B233") {
             Rotate()
             Loop, 2 {
                 Send, {Left down}100{Left up}
@@ -47,7 +47,7 @@ newPiece() {
             Send {Space down}100{Space up}
         }
     }
-    PixelSearch, Px, Py, 953, 215, 955, 570, 0x2970E3, 1, Fast
+    PixelSearch, Px, Py, 953, 215, 955, 570, 0x3476E0, 1, Fast
     if (ErrorLevel=0) {
         Loop, 3 {
             Rotate()
@@ -57,7 +57,7 @@ newPiece() {
         }
         Send {Space down}100{Space up}
     }
-    PixelSearch, Px, Py, 953, 215, 955, 570, 0xCE3A53, 1, Fast
+    PixelSearch, Px, Py, 953, 215, 955, 570, 0xCB2B5F, 1, Fast
     if (ErrorLevel=0) {
         Rotate()
         Loop, 4 {
@@ -65,7 +65,7 @@ newPiece() {
         }
         Send {Space down}100{Space up}
     }
-    PixelSearch, Px, Py, 953, 215, 955, 570, 0x29BEE3, 1, Fast
+    PixelSearch, Px, Py, 953, 215, 955, 570, 0x3AC0DE, 1, Fast
     if (ErrorLevel=0) {
         if (squarect=0) {
             squarect++
@@ -78,7 +78,7 @@ newPiece() {
             Send {c down}100{c up}
         }
     }
-    PixelSearch, Px, Py, 953, 215, 955, 570, 0x29E39E, 1, Fast
+    PixelSearch, Px, Py, 953, 215, 955, 570, 0x3CE599, 1, Fast
     if (ErrorLevel=0) {
         if (squarect>0) {
             squarect--
@@ -88,7 +88,7 @@ newPiece() {
             Send {c down}100{c up}
         }
     }
-    PixelSearch, Px, Py, 953, 215, 955, 570, 0x352BE3, 1, Fast
+    PixelSearch, Px, Py, 953, 215, 955, 570, 0x3B39E0, 1, Fast
     if (ErrorLevel=0) {
         redct++
         Rotate()
@@ -117,11 +117,11 @@ squarect:=0
 return
 
 
-;0xCE3A53 (blue) (maybe), 954, 219
-;0x29E39E (Green)
-;0x9EE329 (light blue)
-;0x352BE3 (red)
-;0x29BEE3 (yellow)
-;0xC03ACE (tpiece)
-;0x2970E3 (orange)
+;0xCB2B5F (blue) (maybe), 954, 219
+;0x3CE599 (Green)
+;0xA0E42B (light blue)
+;0x3B39E0 (red)
+;0x3AC0DE (yellow)
+;0xBD36CF (tpiece)
+;0x3476E0 (orange)
 ;1107, 280 stick lasts
