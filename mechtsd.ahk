@@ -17,7 +17,6 @@ newPiece() {
         if (squarect=0 && redct>=0) {
             Rotate()
             Send {Left down}100{Left up}
-            Sleep, 100
             Send {Down down}100{Down up}
             Rotate()
             Send {Space down}100{Space up}
@@ -95,8 +94,7 @@ newPiece() {
         Loop, 2 {
             Send {Left down}1{Left up}
         }
-        Send {Down down}250{Down up}
-        Sleep, 400
+        Send {Down down}100{Down up}
         Send {Left down}100{Left up}
         Send {Space down}100{Space up}
     }
@@ -114,6 +112,7 @@ return
 
 !^z::
 squarect:=0
+redct:=0
 return
 
 
