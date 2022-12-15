@@ -4,7 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 SysGet, Monitor, Monitor, %A_Index%
-global squarect:=0, redct:=0, x1:=Floor(MonitorRight/2.01469045), y1:=Floor(MonitorBottom/5.02325581), x2:=x1+2, y2:=y1+355
+global squarect:=0, redct:=0, x1:=Round(MonitorRight/2.01469045), y1:=Round(MonitorBottom/5.02325581), x2:=x1+2, y2:=y1+355
 Return
 
 Rotate() {
@@ -27,7 +27,7 @@ newPiece() {
     }
     PixelSearch, Px, Py, x1, y1, x2, y2, 0x9EE329, 1, Fast
     if (ErrorLevel=0) {
-        PixelGetColor, color, Floor(MonitorRight/1.73441734), Floor(MonitorBottom/3.85714286)
+        PixelGetColor, color, Round(MonitorRight/1.73441734), Round(MonitorBottom/3.85714286)
         if (color="0x83B231") {
             Rotate()
             Loop, 2 {
