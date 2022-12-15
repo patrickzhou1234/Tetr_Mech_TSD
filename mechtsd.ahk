@@ -28,7 +28,7 @@ newPiece() {
     PixelSearch, Px, Py, x1, y1, x2, y2, 0x9EE329, 1, Fast
     if (ErrorLevel=0) {
         PixelGetColor, color, Round(MonitorRight/1.73441734), Round(MonitorBottom/3.85714286)
-        if (color="0x83B231") {
+        if (color="0x82B231") {
             Rotate()
             Loop, 2 {
                 Send, {Left down}100{Left up}
